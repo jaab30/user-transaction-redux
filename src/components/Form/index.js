@@ -26,3 +26,9 @@ export function Submit(props) {
             <button type="submit" className={`btn btn-${props.color}`}>{props.children}</button>
         )
 }
+export function Button(props) {
+
+        return (
+            <button {...props} className={`btn btn-${props.color}`}>{props.children}</button>
+        )
+}

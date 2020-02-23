@@ -2,9 +2,9 @@ import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Jumbotron from "../../components/Jumbotron";
-import { Form, Input, Submit} from "../../components/Form";
+import { Form, Input, Submit, Button} from "../../components/Form";
 import { Container, Row, Col } from "../../components/Container";
-import { newUser } from "../../actions";
+import { newUser, ticketSwitch } from "../../actions";
 import TicketView from "../../components/TicketView"
 import TicketForm from "../../components/TicketForm";
 
@@ -12,6 +12,7 @@ function UserDetails () {
 
     const user = useSelector(state => state.userReducer);
     const chosen = useSelector(state => state.chosenReducer);
+    const ticketBoolean = useSelector(state=>state.ticketSwitchReducer)
     const dispatch = useDispatch();
    
     const [username, setUsername] = useState(chosen.username);
@@ -21,8 +22,7 @@ function UserDetails () {
     const [phone, setPhone] = useState(chosen.phone ? chosen.phone : "");
     const [location, setLocation] = useState(chosen.location ? chosen.location : "");
     const [isUpdate, setIsUpdate] = useState(false)
-    const [isTicketForm, setIsTicketForm] = useState(false)
-
+   
 
     const onFormSubmit = (e) => {
         e.preventDefault();
@@ -51,8 +51,8 @@ function UserDetails () {
     const onTicketSubmit = (e) => {
         console.log("yes");
         e.preventDefault();
-        setIsTicketForm(!isTicketForm)
-    }
+        dispatch(ticketSwitch(!ticketBoolean));
+      }
 
 
     const updateUserInfo = () => {
@@ -122,9 +122,7 @@ function UserDetails () {
         return (
             
                 <Row>
-                    <Col 
-                    className="col-6"
-                    >
+                    <Col className="col-6">
                         <Form
                         onSubmit={onFormSubmit}>
                             <p><strong>Username:</strong> {chosen.username}</p>
@@ -147,9 +145,7 @@ function UserDetails () {
         <React.Fragment>
             <Container>
                 <Row>
-                    <Col 
-                        className="col-6 text-center"
-                        >
+                    <Col className="col-6 text-center">
                         <Jumbotron
                         title={"Welcome " + chosen.username} 
                         text="Please review and Update your user information"
@@ -165,31 +161,27 @@ function UserDetails () {
                     </Col>
                 </Row>
                 <Row>
-                <Col 
-                className="col-6"
-                >
+                <Col className="col-6">
                     {isUpdate ? updateUserInfo() : userInfo()}
                 </Col>
-                <Col 
-                className="col-6"
-                >
-                <Form onSubmit={onTicketSubmit}>
-                <Submit 
-                color="warning"
-                >
-                Create Ticket
-                </Submit>
-                </Form>
-                {isTicketForm ? <TicketForm /> : <TicketView />}
-                    
+                <Col className="col-6">
+                    <Form onSubmit={onTicketSubmit}>
+                        <Submit 
+                        color="warning"
+                        >
+                        Create Ticket
+                        </Submit>
+                    </Form>
+                    {ticketBoolean ? <TicketForm /> : ""}
+                    <TicketView />
                 </Col>
 
                 </Row>
             
 
 
-        <Link to="/"><button>BACK</button></Link>
-        </Container>
+                <Link to="/"><Button color="primary">BACK</Button></Link>
+            </Container>
         </React.Fragment>
     )
 

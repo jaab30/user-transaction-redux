@@ -1,26 +1,35 @@
 import React, { useState } from "react";
 import { Form, Input, TextArea, Submit } from "../Form";
 import { useSelector, useDispatch } from "react-redux";
-import { addTransaction, ticketSwitch } from "../../actions";
+import { addTransaction } from "../../actions";
 
 
-function TicketForm() {
+function EditForm({ transId }) {
+    console.log(transId);
+    
 
     const transaction = useSelector(state => state.transactionReducer);
     const chosen = useSelector(state => state.chosenReducer);
-    const ticketBoolean = useSelector(state=>state.ticketSwitchReducer)
+    const chosenTransaction = transaction.filter(item=> item.ticketId === transId);
+    // const ticketBoolean = useSelector(state=>state.ticketSwitchReducer)
     const dispatch = useDispatch();
     
 
-    const [ticketId, setTicketId] = useState(`${chosen.username}-000${Math.floor(Math.random()*1000 + 1)}`);
-    const [date, setDate] = useState(Date.now());
-    const [subject, setSubject] = useState("");
-    const [description, setDescription] = useState("");
-    const [followUp, setFollowUp] = useState("");
-    const [showForm, setShowForm] = useState(ticketBoolean)
+    const [ticketId, setTicketId] = useState(chosenTransaction[0].ticketId);
+    const [date, setDate] = useState(chosenTransaction[0].date);
+    const [subject, setSubject] = useState(chosenTransaction[0].subject);
+    const [description, setDescription] = useState(chosenTransaction[0].description);
+    const [followUp, setFollowUp] = useState(chosenTransaction[0].followUp);
+    const [showForm, setShowForm] = useState(true);
+
+    console.log(ticketId, date, subject, description, followUp);
+    
 
     const onSubmitForm = (e) => {
         e.preventDefault();
+
+        let index = transaction.findIndex(item=>item.ticketId === chosenTransaction[0].ticketId)
+        transaction.splice(index, 1)
 
         dispatch(addTransaction({
             userId: chosen.id,
@@ -31,10 +40,8 @@ function TicketForm() {
             followUp
         }))
         setShowForm(!showForm)
-        const dispatchFunc = () => {
-            return dispatch(ticketSwitch(!ticketBoolean))
-        }
-        setTimeout(dispatchFunc, 2000 )
+     
+       
     }
     return (
         <React.Fragment>
@@ -42,6 +49,7 @@ function TicketForm() {
             <Form
             onSubmit={onSubmitForm}
             >       
+            <h2>Edit Transaction</h2>
                 <p>TICKET ID: {ticketId}</p>
                 <p>Date: {date} </p>
                 <p>Subject:</p>
@@ -66,10 +74,9 @@ function TicketForm() {
                     placeholder="Enter Follow Up"
                 />
                 <Submit>Submit</Submit>
-            </Form> :
-            <h3> Ticket Submitted. Thanks..! </h3>}
+            </Form> : ""}
         </React.Fragment>
     )
 }
 
-export default TicketForm;
+export default EditForm;
