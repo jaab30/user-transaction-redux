@@ -14,9 +14,15 @@ export function Input(props) {
             <input className="form-control" {...props}/>
         )
 }
+export function TextArea(props) {
+        
+    return (
+            <textarea className="form-control" {...props}></textarea>
+        )
+}
 export function Submit(props) {
 
         return (
-            <button type="submit" className="btn btn-primary">{props.children}</button>
+            <button type="submit" className={`btn btn-${props.color}`}>{props.children}</button>
         )
 }

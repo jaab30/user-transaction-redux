@@ -2,7 +2,7 @@ import React, { useState }from "react";
 import { useHistory } from "react-router-dom";
 import { Form, Input, Submit } from "../../components/Form";
 import Jumbotron from "../../components/Jumbotron";
-import Container from "../../components/Container";
+import { Container } from "../../components/Container";
 import { useSelector, useDispatch } from "react-redux";
 import { newUser, currentUser } from "../../actions";
 
@@ -32,17 +32,17 @@ function Main () {
             history.push("/details");
 
             } else {
+                let lastItem = user.slice(-1)[0]
             dispatch(newUser({
-                id: user.length ? user[user.length - 1].id + 1 : 1,
+                id: user.length ? lastItem.id + 1 : 1,
                 username: username,
                 email: email
             }))
             
             dispatch(currentUser({
-                id: user.length ? user[user.length - 1].id + 1 : 1,
+                id: user.length ? lastItem.id + 1 : 1,
                 username: username,
-                email: email,
-                other: []
+                email: email
             }))
             history.push("/details");
             }
@@ -75,7 +75,9 @@ function Main () {
                     onChange={(e)=>setEmail(e.target.value)}
                     placeholder="Enter email"
                     />
-                    <Submit>Submit</Submit>
+                    <Submit
+                    color="primary"
+                    >Submit</Submit>
                 </Form>
             </Container>
         </React.Fragment>

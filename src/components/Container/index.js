@@ -1,10 +1,20 @@
 import React from "react";
 
-function Container(props) {
+export function Container(props) {
 
     return (
         <div className="container">{props.children}</div>
     )
 }
+export function Row(props) {
 
-export default Container;
+    return (
+        <div className="row">{props.children}</div>
+    )
+}
+export function Col(props) {
+
+    return (
+        <div {...props}>{props.children}</div>
+    )
+}
