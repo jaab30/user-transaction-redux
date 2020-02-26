@@ -41,6 +41,7 @@ function UserDetails () {
             id: chosen.id,
             username,
             email,
+            
             firstName,
             lastName,
             phone,

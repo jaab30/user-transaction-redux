@@ -19,6 +19,8 @@ export const addTransaction = (data) => {
     }
 };
 
+
+
 export const ticketSwitch = (data) => {
 
     return {
@@ -27,10 +29,22 @@ export const ticketSwitch = (data) => {
     }
 };
 
-export const deleteTransaction = (newArr) => {
+// export const deleteTransactionAsync = (newArr) => {
     
-    return {
-        type: "DELETE_TRANSACTION",
-        payload: newArr
+//     return {
+//         type: "DELETE_TRANSACTION",
+//         payload: newArr
+//     }
+// };
+// using Thunk to delay the update of the state.
+export const deleteTransaction = data => {
+    return dispatch => {
+        setTimeout(() => {
+            dispatch({
+                type: "DELETE_TRANSACTION",
+                payload: data
+            });
+        }, 2000)
+
     }
-};
+}

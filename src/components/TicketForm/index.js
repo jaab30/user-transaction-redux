@@ -65,7 +65,7 @@ function TicketForm() {
                     onChange={(e)=>setFollowUp(e.target.value)}
                     placeholder="Enter Follow Up"
                 />
-                <Submit>Submit</Submit>
+                <Submit color="success">Submit</Submit>
             </Form> :
             <h3> Ticket Submitted. Thanks..! </h3>}
         </React.Fragment>
