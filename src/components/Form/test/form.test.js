@@ -6,11 +6,19 @@ import { Button } from "../index";
 Enzyme.configure({ adapter: new Adapter() });
 
 describe("Button", () => {
-    it ("should pass the props", () => {
+    it ("should show the text from props", () => {
         // create an intance of the component
+        const wrapper = shallow(<Button />);
+        const text = wrapper.find("button");
+        expect(text.length).toBe(1)
+    })
+
+    it ("should pass the props", () => {
+        
         const props = {
             color: "red"
         }
+        // create an intance of the component
         const wrapper = shallow(<Button {...props}/>);
         const text = wrapper.find("button");
         expect(text.prop("color")).toBe("red");
