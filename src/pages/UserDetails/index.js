@@ -5,7 +5,7 @@ import Jumbotron from "../../components/Jumbotron";
 import { Form, Input, Submit, Button} from "../../components/Form";
 import { Container, Row, Col } from "../../components/Container";
 import { newUser, ticketSwitch } from "../../actions";
-import TicketView from "../../components/TicketView"
+import TicketList from "../../components/TicketList"
 import TicketForm from "../../components/TicketForm";
 
 function UserDetails () {
@@ -41,7 +41,6 @@ function UserDetails () {
             id: chosen.id,
             username,
             email,
-            
             firstName,
             lastName,
             phone,
@@ -50,7 +49,6 @@ function UserDetails () {
     }
 
     const onTicketSubmit = (e) => {
-        console.log("yes");
         e.preventDefault();
         dispatch(ticketSwitch(!ticketBoolean));
       }
@@ -113,8 +111,6 @@ function UserDetails () {
                         </Form>
                     </Col>
                 </Row>
-            
-
         )
 
     }
@@ -162,7 +158,9 @@ function UserDetails () {
                     </Col>
                 </Row>
                 <Row>
+                
                 <Col className="col-6">
+                <Link to="/"><Button color="primary">Log Out</Button></Link>
                     {isUpdate ? updateUserInfo() : userInfo()}
                 </Col>
                 <Col className="col-6">
@@ -174,19 +172,13 @@ function UserDetails () {
                         </Submit>
                     </Form>
                     {ticketBoolean ? <TicketForm /> : ""}
-                    <TicketView />
+                    <TicketList />
                 </Col>
-
                 </Row>
-            
-
-
-                <Link to="/"><Button color="primary">BACK</Button></Link>
+                
             </Container>
         </React.Fragment>
     )
-
-
 }
 
 export default UserDetails;

@@ -18,7 +18,8 @@ function TicketList() {
     const [isDeleted, setisDeleted] = useState(false);
     const [isEditForm, setIsEditForm] = useState(false);
     const [chosenTransId, setChosenTransId ] = useState("");
-    let tempArr = transactions.filter(item => item.userId === chosen.id);
+    const userTransactions = transactions.filter(item => item.userId === chosen.id);
+
     const onDelete = (tixId) => {
      
         let index = transactions.findIndex(item=>item.ticketId === tixId)
@@ -48,7 +49,7 @@ function TicketList() {
                     </Tr>
                 </Thead>
                 <Tbody>
-                    {tempArr.map((transaction, i) =>{
+                    {userTransactions.map((transaction, i) =>{
                     return(
                         <Tr key={i}>
                             <Td>{transaction.ticketId}</Td>

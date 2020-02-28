@@ -21,20 +21,23 @@ function TicketForm() {
 
     const onSubmitForm = (e) => {
         e.preventDefault();
-
-        dispatch(addTransaction({
-            userId: chosen.id,
-            ticketId,
-            date,
-            subject,
-            description,
-            followUp
-        }))
-        setShowForm(!showForm)
-        const dispatchFunc = () => {
-            return dispatch(ticketSwitch(!ticketBoolean))
+        if (!subject || !description){
+            alert('Please Enter Subject and Description')
+        } else {
+            dispatch(addTransaction({
+                userId: chosen.id,
+                ticketId,
+                date,
+                subject,
+                description,
+                followUp
+            }))
+            setShowForm(!showForm)
+            const dispatchFunc = () => {
+                return dispatch(ticketSwitch(!ticketBoolean))
+            }
+            setTimeout(dispatchFunc, 2000 )
         }
-        setTimeout(dispatchFunc, 2000 )
     }
     return (
         <React.Fragment>

@@ -11,14 +11,8 @@ function TicketView() {
 
     return (
         <>
-        {/* <Submit color="warning">Create Ticket</Submit> */}
         <TicketList />
         </>
-
-
-
-
-
     )
 }
 

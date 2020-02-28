@@ -20,31 +20,35 @@ function Main () {
 
         const handleSubmit = (e) => {
             e.preventDefault();
-            let chosen;
-            user.forEach(item => {
+            if (!username || !email){
+                alert('Please Enter Username and Email')
+            } else {
+                let chosen;
+                user.forEach(item => {
                 if (item.username === username && item.email === email){
                     chosen = item;
                 }
                 })
                 
-            if (chosen){
-            dispatch(currentUser(chosen))
-            history.push("/details");
+                if (chosen){
+                dispatch(currentUser(chosen))
+                history.push("/details");
 
-            } else {
-                let lastItem = user.slice(-1)[0]
-            dispatch(newUser({
-                id: user.length ? lastItem.id + 1 : 1,
-                username: username,
-                email: email
-            }))
-            
-            dispatch(currentUser({
-                id: user.length ? lastItem.id + 1 : 1,
-                username: username,
-                email: email
-            }))
-            history.push("/details");
+                } else {
+                    let lastItem = user.slice(-1)[0]
+                    dispatch(newUser({
+                    id: user.length ? lastItem.id + 1 : 1,
+                    username: username,
+                    email: email
+                }))
+                
+                dispatch(currentUser({
+                    id: user.length ? lastItem.id + 1 : 1,
+                    username: username,
+                    email: email
+                }))
+                history.push("/details");
+                }
             }
         }
 

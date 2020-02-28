@@ -5,8 +5,6 @@ import { addTransaction } from "../../actions";
 
 
 function EditForm({ transId }) {
-    console.log(transId);
-    
 
     const transaction = useSelector(state => state.transactionReducer);
     const chosen = useSelector(state => state.chosenReducer);
