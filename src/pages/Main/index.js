@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { Form, Input, Submit } from "../../components/Form";
 import Jumbotron from "../../components/Jumbotron";
 import { Container } from "../../components/Container";
+import Alert from "../../components/Alert";
 import { useSelector, useDispatch } from "react-redux";
 import { newUser, currentUser } from "../../actions";
 
@@ -17,11 +18,13 @@ function Main () {
 
         const [username, setUsername] = useState("");
         const [email, setEmail] = useState("");
+        const [ showAlert, setShowAlert] = useState(false);
 
         const handleSubmit = (e) => {
             e.preventDefault();
             if (!username || !email){
-                alert('Please Enter Username and Email')
+                // alert('Please Enter Username and Email')
+                setShowAlert(true);
             } else {
                 let chosen;
                 user.forEach(item => {
@@ -47,9 +50,12 @@ function Main () {
                     username: username,
                     email: email
                 }))
+                setShowAlert(false);
                 history.push("/details");
                 }
+                
             }
+            
         }
 
 
@@ -71,7 +77,7 @@ function Main () {
                     onChange={(e)=>setUsername(e.target.value)}
                     placeholder="Enter Username"
                     />
-                    eMail:
+                    Email:
                     <Input 
                     id="email"
                     type="email"
@@ -83,6 +89,7 @@ function Main () {
                     color="primary"
                     >Submit</Submit>
                 </Form>
+                { showAlert ? <Alert>Please Enter Username and Email</Alert> : "" }
             </Container>
         </React.Fragment>
 

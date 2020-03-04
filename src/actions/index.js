@@ -33,6 +33,13 @@ export const ticketSwitch = (data) => {
         payload: data
     }
 };
+export const editSwitch = (data) => {
+
+    return {
+        type: "EDIT_SWITCH",
+        payload: data
+    }
+};
 
 // export const deleteTransactionAsync = (newArr) => {
     
