@@ -15,6 +15,7 @@ React, Redux, Redux-Thunk, React-Moment, Enzime, RJSX, CSS3, JavaScript, NODE
 "https://jaab30.github.io/user-transaction-redux"
 
 <img src="https://user-images.githubusercontent.com/40499942/75901754-0209bd80-5e0d-11ea-9116-985a75120cd0.jpg" width="500px"/>
+<br>
 <img src="https://user-images.githubusercontent.com/40499942/75901739-fe763680-5e0c-11ea-879e-f678b1861af0.png" width="500px"/>
 
 
