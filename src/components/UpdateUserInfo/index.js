@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Form, Input, Submit} from "../../components/Form";
-import { Container, Row, Col } from "../../components/Container";
+import { Row, Col } from "../../components/Container";
 import { useSelector, useDispatch } from "react-redux";
-import { newUser } from "../../actions";
+import { newUser, updateSwitch, currentUser } from "../../actions";
 
 
 function UpdateUserInfo() {
     const user = useSelector(state => state.userReducer);
     const chosen = useSelector(state => state.chosenReducer);
+    const ticketBoolean = useSelector(state=>state.switchReducer)
     const dispatch = useDispatch();
 
 
@@ -20,7 +21,6 @@ function UpdateUserInfo() {
 
     const onUpdateSubmit = (e) => {
         e.preventDefault();
-        setIsUpdate(false)
 
         let index = user.findIndex(item=>item.id === chosen.id)
         user.splice(index, 1)
@@ -34,6 +34,17 @@ function UpdateUserInfo() {
             phone,
             location
         }))
+        dispatch(currentUser({
+            id: chosen.id,
+            username,
+            email,
+            firstName,
+            lastName,
+            phone,
+            location
+        }))
+
+        dispatch(updateSwitch(!ticketBoolean.update))
     }
     
 

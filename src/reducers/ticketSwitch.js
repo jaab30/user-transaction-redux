@@ -1,12 +1,19 @@
-const ticketSwitchReducer = (state = false, action) => {
-    console.log(action.payload);
+
+const initialState = {
+    update: false,
+    ticket: false
+    };
+
+const switchReducer = (state = initialState, action) => {
     
         if (action.type === "TICKET_SWITCH"){
-            return state = action.payload
+            return state = { ...state, ticket: action.payload}
+        } else if (action.type === "UPDATE_SWITCH"){
+            return state = { ...state, update: action.payload}
         } else {
             return state
         }
 
 }
 
-export default ticketSwitchReducer;
+export default switchReducer;

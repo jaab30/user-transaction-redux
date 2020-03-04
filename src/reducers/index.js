@@ -1,14 +1,14 @@
 import userReducer from "./user";
 import transactionReducer from "./transaction";
 import chosenReducer from "./chosen"
-import ticketSwitchReducer from "./ticketSwitch"
+import switchReducer from "./ticketSwitch"
 import { combineReducers } from "redux";
 
 const allReducers = combineReducers({
     userReducer,
     transactionReducer,
     chosenReducer,
-    ticketSwitchReducer
+    switchReducer
 });
 
 export default allReducers;

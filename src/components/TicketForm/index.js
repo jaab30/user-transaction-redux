@@ -6,18 +6,17 @@ import { addTransaction, ticketSwitch } from "../../actions";
 
 function TicketForm() {
 
-    const transaction = useSelector(state => state.transactionReducer);
     const chosen = useSelector(state => state.chosenReducer);
-    const ticketBoolean = useSelector(state=>state.ticketSwitchReducer)
+    const ticketBoolean = useSelector(state=>state.switchReducer)
     const dispatch = useDispatch();
     
 
-    const [ticketId, setTicketId] = useState(`${chosen.username}-000${Math.floor(Math.random()*1000 + 1)}`);
-    const [date, setDate] = useState(Date.now());
+    const [ticketId] = useState(`${chosen.username}-000${Math.floor(Math.random()*1000 + 1)}`);
+    const [date] = useState(Date.now());
     const [subject, setSubject] = useState("");
     const [description, setDescription] = useState("");
     const [followUp, setFollowUp] = useState("");
-    const [showForm, setShowForm] = useState(ticketBoolean)
+    const [showForm, setShowForm] = useState(ticketBoolean.ticket)
 
     const onSubmitForm = (e) => {
         e.preventDefault();
@@ -33,10 +32,7 @@ function TicketForm() {
                 followUp
             }))
             setShowForm(!showForm)
-            const dispatchFunc = () => {
-                return dispatch(ticketSwitch(!ticketBoolean))
-            }
-            setTimeout(dispatchFunc, 2000 )
+            dispatch(ticketSwitch(!ticketBoolean.ticket))
         }
     }
     return (

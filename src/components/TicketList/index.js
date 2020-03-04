@@ -1,18 +1,15 @@
-import React, {useState, useEffect} from "react";
+import React, { useState } from "react";
 import { Table, Thead, Th, Tbody, Tr, Td } from "../Table";
-// import { Form, Input, Submit, Button} from "../../components/Form";
 import { Button } from "../Form";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteTransaction, ticketSwitch } from "../../actions";
+import { deleteTransaction } from "../../actions";
 import EditForm from "../EditForm";
 
 
 function TicketList() {
-    console.log("TRANSACTION");
     
     const transactions = useSelector(state => state.transactionReducer);
     const chosen = useSelector(state => state.chosenReducer);
-    // const ticketBoolean = useSelector(state=>state.ticketSwitchReducer)
     const dispatch = useDispatch();
 
     const [isDeleted, setisDeleted] = useState(false);
@@ -31,8 +28,6 @@ function TicketList() {
     const onEdit = (id) => {
         setChosenTransId(id)
         setIsEditForm(!isEditForm);
-        
-        // dispatch(ticketSwitch(!ticketBoolean))
     }
 
     return (

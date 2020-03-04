@@ -19,8 +19,13 @@ export const addTransaction = (data) => {
     }
 };
 
+export const updateSwitch = (data) => {
 
-
+    return {
+        type: "UPDATE_SWITCH",
+        payload: data
+    }
+};
 export const ticketSwitch = (data) => {
 
     return {

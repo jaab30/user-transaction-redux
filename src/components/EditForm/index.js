@@ -9,12 +9,11 @@ function EditForm({ transId }) {
     const transaction = useSelector(state => state.transactionReducer);
     const chosen = useSelector(state => state.chosenReducer);
     const chosenTransaction = transaction.filter(item=> item.ticketId === transId);
-    // const ticketBoolean = useSelector(state=>state.ticketSwitchReducer)
     const dispatch = useDispatch();
     
 
-    const [ticketId, setTicketId] = useState(chosenTransaction[0].ticketId);
-    const [date, setDate] = useState(chosenTransaction[0].date);
+    const [ticketId] = useState(chosenTransaction[0].ticketId);
+    const [date] = useState(chosenTransaction[0].date);
     const [subject, setSubject] = useState(chosenTransaction[0].subject);
     const [description, setDescription] = useState(chosenTransaction[0].description);
     const [followUp, setFollowUp] = useState(chosenTransaction[0].followUp);
