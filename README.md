@@ -16,7 +16,7 @@ React, Redux, Redux-Thunk, React-Moment, Enzime, RJSX, CSS3, JavaScript, NODE
 
 <img src="https://user-images.githubusercontent.com/40499942/75950160-644ad880-5e76-11ea-8661-a6c3a788366a.png" width="500px"/>
 <br>
-<img src="https://user-images.githubusercontent.com/40499942/75901739-fe763680-5e0c-11ea-879e-f678b1861af0.png" width="500px"/>
+<img src="https://user-images.githubusercontent.com/40499942/75950295-c4da1580-5e76-11ea-8c7b-6993c763a545.png" width="500px"/>
 
 
 
