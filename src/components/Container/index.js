@@ -3,7 +3,7 @@ import React from "react";
 export function Container(props) {
 
     return (
-        <div className="container">{props.children}</div>
+        <div {...props} className="container">{props.children}</div>
     )
 }
 export function Row(props) {
@@ -16,5 +16,11 @@ export function Col(props) {
 
     return (
         <div {...props}>{props.children}</div>
+    )
+}
+export function P(props) {
+
+    return (
+        <p {...props}>{props.children}</p>
     )
 }

@@ -52,7 +52,7 @@ function UpdateUserInfo() {
         
             <Row>
                 <Col 
-                className="col-6"
+                className="col-12"
                 >
                     <Form
                     onSubmit={onUpdateSubmit}
@@ -99,7 +99,8 @@ function UpdateUserInfo() {
                             onChange={(e)=>setLocation(e.target.value)}
                             placeholder="Enter State"
                         />
-                        <Submit>Submit</Submit>
+                        <Submit
+                        color="success">Submit</Submit>
                     </Form>
                 </Col>
             </Row>

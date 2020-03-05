@@ -28,8 +28,9 @@ function UserInfo() {
     return (
         
           <Row>
-                <Col className="col-6">
+                <Col className="col-12">
                     <Form
+                    className="userInfo"
                     onSubmit={onFormSubmit}>
                         <p><strong>Username:</strong> {chosenUser.username}</p>
                         <p><strong>email:</strong> {chosenUser.email}</p>

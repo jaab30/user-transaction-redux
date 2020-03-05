@@ -1,0 +1,67 @@
+
+.container {
+    margin: 0 auto;
+}
+
+h1, p {
+    font-family: 'Montserrat', sans-serif;
+}
+h1 {
+    font-size: 2.5em;
+}
+h2 {
+    margin-top: 20px;
+}
+
+.p_login {
+    font-weight: 700;
+}
+
+.userInfo {
+    background: rgb(0, 0, 0, .3);
+    padding: 20px;
+}
+.userInfo:nth-child(2) {
+    border-left: rgb(0, 0, 0, .2) solid 3px;
+}
+
+form {
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+}
+form.logInForm {
+    width: 60%;
+
+}
+form.updateForm {
+    width: 100%;
+
+}
+
+form.userInfo {
+    font-weight: 400;
+    font-size: .9em;
+    font-family: 'Montserrat', sans-serif;
+}
+form.tixForm {
+    margin: 20px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: .9em;
+}
+table {
+    font-family: 'Montserrat', sans-serif;
+}
+
+input.inputRound, textarea.textRound {
+    border-radius: 5px;
+    margin: 10px 0;
+}
+.btn {
+    border-radius: 5px;
+    width: 100%;
+    margin: 0;
+}
+.alert.alertRound {
+    border-radius: 5px;
+
+}

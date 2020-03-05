@@ -42,12 +42,14 @@ function UserDetails () {
                 </Row>
                 <Row>
                 
-                <Col className="col-6">
-                <Link to="/"><Button color="danger">Log Out</Button></Link>
+                <Col className="col-6 userInfo">
+                    <Link to="/"><Button color="danger mb-3">Log Out</Button></Link>
                     {ticketBoolean.update ? <UpdateUserInfo/> : <UserInfo/>}
                 </Col>
-                <Col className="col-6">
-                    <Form onSubmit={onTicketSubmit}>
+                <Col className="col-6 userInfo">
+                    <Form 
+                    className="updateForm"
+                    onSubmit={onTicketSubmit}>
                     {ticketBoolean.ticket ?
                         <Submit 
                         color="primary"

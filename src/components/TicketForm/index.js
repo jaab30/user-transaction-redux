@@ -44,6 +44,7 @@ function TicketForm() {
             { showAlert ? <Alert>Please Enter Subject and Description</Alert> : "" }
             {showForm ? 
             <Form
+            className="tixForm"
             onSubmit={onSubmitForm}
             >       
                 <p>TICKET ID: {ticketId}</p>
@@ -69,7 +70,7 @@ function TicketForm() {
                     onChange={(e)=>setFollowUp(e.target.value)}
                     placeholder="Enter Follow Up"
                 />
-                <Submit color="success">Submit</Submit>
+                <Submit color="success mt-3">Submit</Submit>
             </Form> : ""}
         </React.Fragment>
     )

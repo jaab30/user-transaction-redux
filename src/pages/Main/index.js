@@ -2,10 +2,11 @@ import React, { useState }from "react";
 import { useHistory } from "react-router-dom";
 import { Form, Input, Submit } from "../../components/Form";
 import Jumbotron from "../../components/Jumbotron";
-import { Container } from "../../components/Container";
+import { Container, P } from "../../components/Container";
 import Alert from "../../components/Alert";
 import { useSelector, useDispatch } from "react-redux";
 import { newUser, currentUser } from "../../actions";
+import "./style.css"
 
 
 
@@ -67,9 +68,10 @@ function Main () {
             />
             <Container>
                 <Form
+                className="mx-auto logInForm"
                 onSubmit={handleSubmit}
                 >
-                    Username:
+                    <P className="p_login">Username:</P>
                     <Input 
                     id="username"
                     type="text"
@@ -77,7 +79,7 @@ function Main () {
                     onChange={(e)=>setUsername(e.target.value)}
                     placeholder="Enter Username"
                     />
-                    Email:
+                    <P className="p_login">Email:</P>
                     <Input 
                     id="email"
                     type="email"
@@ -86,10 +88,11 @@ function Main () {
                     placeholder="Enter email"
                     />
                     <Submit
-                    color="primary"
+                    color="primary round"
                     >Submit</Submit>
+                    { showAlert ? <Alert>Please Enter Username and Email</Alert> : "" }
                 </Form>
-                { showAlert ? <Alert>Please Enter Username and Email</Alert> : "" }
+                
             </Container>
         </React.Fragment>
 
