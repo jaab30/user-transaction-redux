@@ -9,10 +9,10 @@ import { addTransaction, ticketSwitch } from "../../actions";
 function TicketForm() {
 
     const chosen = useSelector(state => state.chosenReducer);
-    const ticketBoolean = useSelector(state=>state.switchReducer)
+    const ticketBoolean = useSelector(state => state.switchReducer)
     const dispatch = useDispatch();
-    
-    const [ticketId] = useState(`${chosen.username}-000${Math.floor(Math.random()*1000 + 1)}`);
+
+    const [ticketId] = useState(`${chosen.username}-000${Math.floor(Math.random() * 1000 + 1)}`);
     const [date] = useState(Date.now());
     const [subject, setSubject] = useState("");
     const [description, setDescription] = useState("");
@@ -22,7 +22,7 @@ function TicketForm() {
 
     const onSubmitForm = (e) => {
         e.preventDefault();
-        if (!subject || !description){
+        if (!subject || !description) {
             setShowAlert(true);
         } else {
             dispatch(addTransaction({
@@ -38,40 +38,40 @@ function TicketForm() {
         }
     }
 
-    const dateToFormat = date;
+    // const dateToFormat = date;
     return (
         <React.Fragment>
-            { showAlert ? <Alert>Please Enter Subject and Description</Alert> : "" }
-            {showForm ? 
-            <Form
-            className="tixForm"
-            onSubmit={onSubmitForm}
-            >       
-                <p>TICKET ID: {ticketId}</p>
-                <p>Date: <Moment format="MMMM Do YYYY, h:mm a">{dateToFormat}</Moment></p>
-                <p>Subject:</p>
-                <Input 
-                    type="text"
-                    value={subject}
-                    onChange={(e)=>setSubject(e.target.value)}
-                    placeholder="Enter Subject"
-                />
-                <p>Description:</p>
-                <TextArea 
-                    type="textarea"
-                    value={description}
-                    onChange={(e)=>setDescription(e.target.value)}
-                    placeholder="Enter Description"
-                />
-                <p>Follow Up:</p>
-                <TextArea  
-                    type="textarea"
-                    value={followUp}
-                    onChange={(e)=>setFollowUp(e.target.value)}
-                    placeholder="Enter Follow Up"
-                />
-                <Submit color="success mt-3">Submit</Submit>
-            </Form> : ""}
+            {showAlert ? <Alert>Please Enter Subject and Description</Alert> : ""}
+            {showForm ?
+                <Form
+                    className="tixForm"
+                    onSubmit={onSubmitForm}
+                >
+                    <p>TICKET ID: {ticketId}</p>
+                    <p>Date: <Moment format="MMMM Do YYYY, h:mm a">{date}</Moment></p>
+                    <p>Subject:</p>
+                    <Input
+                        type="text"
+                        value={subject}
+                        onChange={(e) => setSubject(e.target.value)}
+                        placeholder="Enter Subject"
+                    />
+                    <p>Description:</p>
+                    <TextArea
+                        type="textarea"
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        placeholder="Enter Description"
+                    />
+                    <p>Follow Up:</p>
+                    <TextArea
+                        type="textarea"
+                        value={followUp}
+                        onChange={(e) => setFollowUp(e.target.value)}
+                        placeholder="Enter Follow Up"
+                    />
+                    <Submit color="success mt-3">Submit</Submit>
+                </Form> : ""}
         </React.Fragment>
     )
 }

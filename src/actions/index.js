@@ -12,7 +12,7 @@ export const currentUser = (chosen) => {
     }
 };
 export const addTransaction = (data) => {
-    
+
     return {
         type: "ADD_TRANSACTION",
         payload: data
@@ -42,21 +42,19 @@ export const editSwitch = (data) => {
 };
 
 // export const deleteTransactionAsync = (newArr) => {
-    
+
 //     return {
 //         type: "DELETE_TRANSACTION",
 //         payload: newArr
 //     }
 // };
 // using Thunk to delay the update of the state.
-export const deleteTransaction = data => {
-    return dispatch => {
-        setTimeout(() => {
-            dispatch({
-                type: "DELETE_TRANSACTION",
-                payload: data
-            });
-        }, 2000)
+export const deleteTransaction = data => dispatch => {
+    setTimeout(() => {
+        dispatch({
+            type: "DELETE_TRANSACTION",
+            payload: data
+        });
+    }, 2000)
 
-    }
 }
