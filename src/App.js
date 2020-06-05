@@ -12,7 +12,7 @@ function App() {
     <Provider store={store}>
       <Router basename={process.env.PUBLIC_URL}>
         <Route exact path="/" component={Main} />
-        <Route exact path={`${process.env.PUBLIC_URL}/details`} component={UserDetails} />
+        <Route exact path="/details" component={UserDetails} />
       </Router>
     </Provider>
   );
