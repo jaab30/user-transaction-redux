@@ -8,19 +8,19 @@ import EditForm from "../EditForm";
 
 
 function TicketList() {
-    
+
     const transactions = useSelector(state => state.transactionReducer);
     const chosen = useSelector(state => state.chosenReducer);
-    const ticketBoolean = useSelector(state=>state.switchReducer);
+    const ticketBoolean = useSelector(state => state.switchReducer);
     const dispatch = useDispatch();
 
     const [isDeleted, setisDeleted] = useState(false);
-    const [chosenTransId, setChosenTransId ] = useState("");
+    const [chosenTransId, setChosenTransId] = useState("");
     const userTransactions = transactions.filter(item => item.userId === chosen.id);
 
     const onDelete = (tixId) => {
-     
-        let index = transactions.findIndex(item=>item.ticketId === tixId)
+
+        let index = transactions.findIndex(item => item.ticketId === tixId)
         transactions.splice(index, 1)
         dispatch(deleteTransaction(transactions))
         setisDeleted(!isDeleted)
@@ -32,9 +32,9 @@ function TicketList() {
     }
 
     return (
-        
+
         <>
-            {ticketBoolean.edit ? <EditForm transId={chosenTransId}/> : ""}
+            {ticketBoolean.edit ? <EditForm transId={chosenTransId} /> : ""}
             <Table>
                 <Thead>
                     <Tr>
@@ -46,23 +46,26 @@ function TicketList() {
                     </Tr>
                 </Thead>
                 <Tbody>
-                    {userTransactions.map((transaction, i) =>{
+                    {userTransactions.map((transaction, i) => {
                         const dateToFormat = transaction.date;
-                    return(
-                        <Tr key={i}>
-                            <Td>{transaction.ticketId}</Td>
-                            <Td><Moment format="MMMM Do YYYY">{dateToFormat}</Moment></Td>
-                            <Td>{transaction.subject}</Td>
-                            <Td><Button onClick={() => onEdit(transaction.ticketId)} color="success">Edit</Button></Td>
-                            <Td><Button onClick={() => onDelete(transaction.ticketId)}color="danger">Delete</Button></Td>
-                            
-                        </Tr>
-                    )
-                })}
+                        return (
+                            <Tr key={i}>
+                                <Td>{transaction.ticketId}</Td>
+                                <Td><Moment format="MMMM Do YYYY">{dateToFormat}</Moment></Td>
+                                <Td>{transaction.subject}</Td>
+                                <Td><Button onClick={() => onEdit(transaction.ticketId)} color="success">Edit</Button></Td>
+                                {ticketBoolean.edit ? "" :
+                                    <Td><Button onClick={() => onDelete(transaction.ticketId)} color="danger">Delete</Button></Td>
+                                }
+
+
+                            </Tr>
+                        )
+                    })}
                 </Tbody>
             </Table>
-            
-            </>
+
+        </>
     )
 }
 

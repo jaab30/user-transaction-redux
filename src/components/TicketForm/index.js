@@ -38,7 +38,6 @@ function TicketForm() {
         }
     }
 
-    // const dateToFormat = date;
     return (
         <React.Fragment>
             {showAlert ? <Alert>Please Enter Subject and Description</Alert> : ""}

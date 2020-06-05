@@ -5,13 +5,9 @@ import TicketList from "../TicketList";
 
 function TicketView() {
 
-
-
-
-
     return (
         <>
-        <TicketList />
+            <TicketList />
         </>
     )
 }

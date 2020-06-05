@@ -9,8 +9,6 @@ import { newUser, currentUser } from "../../actions";
 import "./style.css"
 
 
-
-
 function Main() {
 
     const user = useSelector(state => state.userReducer);
@@ -54,11 +52,8 @@ function Main() {
                 setShowAlert(false);
                 history.push("/details");
             }
-
         }
-
     }
-
 
     return (
         <React.Fragment>
@@ -95,12 +90,7 @@ function Main() {
 
             </Container>
         </React.Fragment>
-
     )
-
-
-
-
 }
 
 export default Main;
