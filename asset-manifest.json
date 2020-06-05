@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/user-transaction-redux/static/css/main.d2968ac4.chunk.css",
-    "main.js": "/user-transaction-redux/static/js/main.7ce13236.chunk.js",
-    "main.js.map": "/user-transaction-redux/static/js/main.7ce13236.chunk.js.map",
+    "main.js": "/user-transaction-redux/static/js/main.8ae370c3.chunk.js",
+    "main.js.map": "/user-transaction-redux/static/js/main.8ae370c3.chunk.js.map",
     "runtime-main.js": "/user-transaction-redux/static/js/runtime-main.15d71f12.js",
     "runtime-main.js.map": "/user-transaction-redux/static/js/runtime-main.15d71f12.js.map",
     "static/js/2.5b87fbd5.chunk.js": "/user-transaction-redux/static/js/2.5b87fbd5.chunk.js",
     "static/js/2.5b87fbd5.chunk.js.map": "/user-transaction-redux/static/js/2.5b87fbd5.chunk.js.map",
     "index.html": "/user-transaction-redux/index.html",
-    "precache-manifest.aad368d8531d3ccead4a4f23f059f218.js": "/user-transaction-redux/precache-manifest.aad368d8531d3ccead4a4f23f059f218.js",
+    "precache-manifest.e7f0974faedbb84642ffd9da0c5c8ce5.js": "/user-transaction-redux/precache-manifest.e7f0974faedbb84642ffd9da0c5c8ce5.js",
     "service-worker.js": "/user-transaction-redux/service-worker.js",
     "static/css/main.d2968ac4.chunk.css.map": "/user-transaction-redux/static/css/main.d2968ac4.chunk.css.map",
     "static/js/2.5b87fbd5.chunk.js.LICENSE.txt": "/user-transaction-redux/static/js/2.5b87fbd5.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.15d71f12.js",
     "static/js/2.5b87fbd5.chunk.js",
     "static/css/main.d2968ac4.chunk.css",
-    "static/js/main.7ce13236.chunk.js"
+    "static/js/main.8ae370c3.chunk.js"
   ]
 }

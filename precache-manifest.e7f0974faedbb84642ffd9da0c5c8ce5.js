@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "97de747f3b0c62ee913f298aefcd1f64",
+    "revision": "a2b1318767b2328d0c85195d46e4b815",
     "url": "/user-transaction-redux/index.html"
   },
   {
-    "revision": "654c5742ec9a3c0c96ec",
+    "revision": "90b92e7cbc25ba720dfa",
     "url": "/user-transaction-redux/static/css/main.d2968ac4.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/user-transaction-redux/static/js/2.5b87fbd5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "654c5742ec9a3c0c96ec",
-    "url": "/user-transaction-redux/static/js/main.7ce13236.chunk.js"
+    "revision": "90b92e7cbc25ba720dfa",
+    "url": "/user-transaction-redux/static/js/main.8ae370c3.chunk.js"
   },
   {
     "revision": "02476ec0efdc5b4e43d0",
