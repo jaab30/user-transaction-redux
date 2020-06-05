@@ -10,7 +10,7 @@ import UserDetails from "./pages/UserDetails";
 function App() {
   return (
     <Provider store={store}>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Route exact path="/" component={Main} />
         <Route exact path="/details" component={UserDetails} />
       </Router>
