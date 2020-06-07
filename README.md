@@ -2,8 +2,9 @@
 
 ## Online Example & Deployment:
 
-This application was deployed to GitHub Pages. 
--   Link: https://jaab30.github.io/user-transaction-redux
+This application was deployed to Heroku services and Git Hub Pages. 
+-   Heroku: https://user-transaction.herokuapp.com
+-   GitHub Pages: https://jaab30.github.io/user-transaction-redux
 
 ### Description:
 
