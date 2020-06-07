@@ -12,7 +12,7 @@ The main functionallity for this application is to create tickets for a specific
 
 ### WebTools: 
     
-React, Redux, Redux-Thunk, React-Moment, Enzime, RJSX, CSS3, JavaScript, NODE
+React, Redux, Redux-Thunk, React-Moment, Enzime, JSX, CSS3, JavaScript, NodeJS.
 
 ## Questions
 
